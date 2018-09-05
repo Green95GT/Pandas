@@ -1,0 +1,51 @@
+%matplotlib inline
+
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+
+plt.rcParams['figure.figsize'] = (15,5)
+plt.rcParams['font.family'] = 'sans-sarif'
+----------------------------------------------------
+requests = pd.read_csv('311_data.csv')
+----------------------------------------------------
+requests['Incident Zip'].unique()
+----------------------------------------------------
+na_values = ['No Clue','N/A','0']
+requests = pd.read_csv('311_data.csv', na_values=na_values, dtype={'Incident Zip':str})
+----------------------------------------------------
+requests['Incident Zip'].unique()
+----------------------------------------------------
+rows_with_dashes = requests['Incident Zip'].str.contains('-').fillna(False)
+len(requests[rows_with_dashes])
+----------------------------------------------------
+requests[rows_with_dashes]
+----------------------------------------------------
+long_zip_codes = requests['Incident Zip'].str.len() > 5
+requests['Incident Zip'][long_zip_codes].unique()
+----------------------------------------------------
+requests['Incident Zip'] = requests['Incident Zip'].str.slice(0,5)
+----------------------------------------------------
+requests[requests['Incident Zip'] == '00000']
+----------------------------------------------------
+requests['Incident Zip'].unique()
+----------------------------------------------------
+zero_zips = requests['Incident Zip'] == '00000'
+requests.loc[zero_zips, 'Incident Zip'] = np.nan
+----------------------------------------------------
+unique_zips = requests['Incident Zip'].unique()
+unique_zips
+----------------------------------------------------
+a = unique_zips.astype(str)
+a.sort()
+a
+-----------------------------------------------------
+zips = requests['Incident Zip']
+is_close = zips.str.startswith('0') | zips.str.startswith('1')
+# There are a bunch of NaNs, but we're not interested in them right now, so we'll say they're False
+is_far = ~(is_close) & zips.notnull()
+-----------------------------------------------------
+zips[is_far]
+-----------------------------------------------------
+requests['City'].str.upper().value_counts()
+

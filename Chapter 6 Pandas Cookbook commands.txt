@@ -1,0 +1,57 @@
+%matplotlib inline
+
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+
+plt.rcParams['figure.figsize'] = (15,3)
+plt.rcParams['font.family'] = 'sans-sarif'
+--------------------------------------------------------------
+WeatheR_2012 = pd.read_csv('weather_2012.csv', skiprows=24, index_col='Date/Time', parse_dates=True, encoding='utf-8-sig')
+--------------------------------------------------------------
+WeatHER_2012 = WeatheR_2012.dropna(axis=1, how='all', thresh=14)
+WeatHER_2012[:3]
+--------------------------------------------------------------
+total_rain = WEATHER_2012['Total Rain Flag']
+is_rain_flag = total_rain.str.contains('M')
+--------------------------------------------------------------
+is_rain_flag.plot()
+--------------------------------------------------------------
+WEATHER_2012['Mean Temp (\xb0C)'].resample('M', how=np.median).plot(kind='bar')
+--------------------------------------------------------------
+is_rain_flag.astype(float)[:10]
+--------------------------------------------------------------
+is_rain_flag.astype(float).resample('M')
+--------------------------------------------------------------
+max_temp = WEATHER_2012['Max Temp (\xb0C)']
+--------------------------------------------------------------
+above_freezing = max_temp>22.0
+--------------------------------------------------------------
+above_freezing
+--------------------------------------------------------------
+above_freezing.astype(float)[:10]
+--------------------------------------------------------------
+above_freezing.astype(float).resample('M', how=np.mean)
+--------------------------------------------------------------
+above_freezing.astype(float).resample('M', how=np.mean).plot(kind='bar')
+--------------------------------------------------------------
+min_temp = WEATHER_2012['Min Temp (\xb0C)']
+--------------------------------------------------------------
+below_freezing = min_temp<14.0
+--------------------------------------------------------------
+below_freezing[:5]
+--------------------------------------------------------------
+below_freezing.astype(float)[:10]
+--------------------------------------------------------------
+below_freezing.astype(float).resample('M', how=np.mean)
+--------------------------------------------------------------
+above = above_freezing.astype(float).resample('M', how=np.mean)
+below = below_freezing.astype(float).resample('M', how=np.mean)
+
+above.name = 'above'
+below.name = 'below'
+--------------------------------------------------------------
+stats = pd.concat([above, below], axis=1)
+stats
+--------------------------------------------------------------
+stats.plot(kind='bar', subplots=True, figsize=(15, 10))

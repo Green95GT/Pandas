@@ -1,0 +1,26 @@
+url_template = "http://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=10761&Year=2012&Month=7&Day=1&timeframe=2&submit=Download+Data"
+-----------------------------------------------------------------------------------
+%matplotlib inline
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+
+plt.rcParams['figure.figsize'] = (15, 3)
+plt.rcParams['font.family'] = 'sans-sarif'
+-------------------------------------------------------------------------------------
+url = url_template
+weather_mar2012 = pd.read_csv(url, skiprows=24, index_col='Date/Time', parse_dates=True, encoding='utf-8-sig')
+-------------------------------------------------------------------------------------
+real_mar2012 = weather_mar2012[weather_mar2012['Month'] == 3]
+-------------------------------------------------------------------------------------
+real_mar2012
+-------------------------------------------------------------------------------------
+real_mar2012['Max Temp (\xb0C)'].plot(figsize=(15,5))
+-------------------------------------------------------------------------------------
+real_mar2012 = real_mar2012.dropna(axis=1, how='any')
+real_mar2012
+-------------------------------------------------------------------------------------
+real_mar2012 = real_mar2012.drop(['Year', 'Month', 'Day'], axis=1)
+real_mar2012[:5]
+-------------------------------------------------------------------------------------
+real_mar2012.to_csv('weather_mar2012.csv')
