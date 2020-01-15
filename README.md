@@ -1,6 +1,8 @@
 # Python Pandas
 
-There execises are form lesson I found in the tutorial section of pandas.pydata.org back in 2018. As of 2020, they have changed it a bit.
+There execises are form lesson I found in the tutorial section of pandas.pydata.org back in 2018 (https://pandas.pydata.org/pandas-docs/version/0.18/tutorials.html).
+
+As of 2020, they have changed it a bit.
 
 I had trouble compiling some of there code on my machine at the time as I was using iPython Notebook not Jupyter. I had to make some adjustments to make them work.
 
