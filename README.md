@@ -1,4 +1,4 @@
-# Python Pandas
+# Python Pandas Tutorials
 
 There execises are form lesson I found in the tutorial section of pandas.pydata.org back in 2018 (https://pandas.pydata.org/pandas-docs/version/0.18/tutorials.html).
 
@@ -28,13 +28,17 @@ Here is a guide:
 
 Lessons 8 & 9 are missing.
 
-Then there teh cookbook exercises that I managed to do. However the iPython files are missing so these are in txt format:
+-----------------------------------------------------------------------------
 
-Chapter 5: Here you get to find out if it’s cold in Montreal in the winter (spoiler: yes). Web scraping with pandas is fun! Here we combine dataframes.
+Then there are the cookbook exercises that I managed to do. However the iPython files are missing so these are in txt format:
 
-Chapter 6: Strings with pandas are great. It has all these vectorized string operations and they’re the best. We will turn a bunch of strings containing “Snow” into vectors of numbers in a trice.
+Chapter 5: Here you get to find out if it’s cold in Montreal in the winter (spoiler: yes). Web scraping with pandas is fun! Here we                combine dataframes.
+
+Chapter 6: Strings with pandas are great. It has all these vectorized string operations and they’re the best. We will turn a bunch of              strings containing “Snow” into vectors of numbers in a trice.
 
 Chapter 7: Cleaning up messy data is never a joy, but with pandas it’s easier.
+
+-----------------------------------------------------------------------------
 
 And finally I did the Practical Data Analysis with Python sectoin (Munging, Aggregating, Visualizing, and Time Series).
 
