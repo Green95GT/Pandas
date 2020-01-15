@@ -3,6 +3,7 @@
 There execises are form lesson I found in the tutorial section of pandas.pydata.org back in 2018 (https://pandas.pydata.org/pandas-docs/version/0.18/tutorials.html).
 
 Here is a guide:
+
 Chapter 1: Reading your data into pandas is pretty much the easiest thing. Even when the encoding is wrong!
 
 Chapter 2: It’s not totally obvious how to select data from a pandas dataframe. Here we explain the basics (how to take slices and get columns)
